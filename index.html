@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Cedwyn Estate · navigator</title>
+<style>
+:root{--bg:#f6f1e7;--ink:#2b2418;--line:#cdbf9f;--acc:#6b4f1d}
+*{box-sizing:border-box}html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:15px/1.35 Georgia,serif}
+header{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .6rem;padding:.5rem .7rem;border-bottom:1px solid var(--line)}
+header h1{font-size:1rem;margin:0 .4rem 0 0;white-space:nowrap}
+#slot{font-variant-numeric:tabular-nums;white-space:nowrap}
+button,select{font:inherit;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:6px;padding:.3rem .55rem;min-height:36px}
+select{flex:1 1 12rem;min-width:0}
+#meta{width:100%;font-size:.8rem;opacity:.75}
+main{position:absolute;top:var(--h,96px);left:0;right:0;bottom:0}
+iframe{width:100%;height:100%;border:0;background:#fff}
+</style></head><body>
+<header id="bar">
+<h1>Cedwyn Estate</h1>
+<button id="prev" aria-label="Previous webapp">&#8592;</button>
+<span id="slot">– of 59</span>
+<button id="next" aria-label="Next webapp">&#8594;</button>
+<select id="pick" aria-label="Choose a webapp"></select>
+<div id="meta"></div>
+</header>
+<main><iframe id="view" title="Webapp" loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe></main>
+<script>
+(async()=>{
+ const r=await fetch('apps.json?cb='+Date.now()); const m=await r.json(); const A=m.apps;
+ const pick=document.getElementById('pick'), view=document.getElementById('view');
+ A.forEach((a,i)=>{const o=document.createElement('option');o.value=i;o.textContent=a.slot+'. '+a.title;pick.appendChild(o)});
+ const fit=()=>document.querySelector('main').style.setProperty('--h','0px')||document.documentElement.style.setProperty('--h',document.getElementById('bar').offsetHeight+'px');
+ function show(i){i=(i+A.length)%A.length;const a=A[i];pick.value=i;view.src=a.url;
+  document.getElementById('slot').textContent=a.slot+' of '+m.total;
+  document.getElementById('meta').textContent=a.status+' · '+m.split+' of '+m.total+' webapps in their own repositories';
+  history.replaceState(null,'','#'+a.id);fit();}
+ document.getElementById('prev').onclick=()=>show(+pick.value-1);
+ document.getElementById('next').onclick=()=>show(+pick.value+1);
+ pick.onchange=()=>show(+pick.value);
+ addEventListener('keydown',e=>{if(e.key==='ArrowLeft')show(+pick.value-1);if(e.key==='ArrowRight')show(+pick.value+1)});
+ addEventListener('resize',fit);
+ const h=location.hash.slice(1), k=A.findIndex(a=>a.id===h); show(k<0?0:k);
+})();
+</script></body></html>
