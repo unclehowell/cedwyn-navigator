@@ -9,4 +9,4 @@ one at a time, inside a single frame, with previous / next and a menu ("NN of 59
 - Phase 2 brings the central catalogue database (branch `catalogue-db` on unclehowell/cedwyn) and display settings in here;
   then this becomes the apex landing page.
 
-Preview: https://cedwyn-navigator.pages.dev/ · Plan: issue #188 on unclehowell/cedwyn. Never force-push.
+Preview: https://cedwyn-navigator.sites.tab.bot/ · Plan: issue #188 on unclehowell/cedwyn. Never force-push.
