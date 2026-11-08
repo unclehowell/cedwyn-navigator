@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Cedwyn Estate · navigator</title>
+<meta name="description" content="The 59 Cedwyn Estate webapps, one at a time: previous, next and a menu, numbered 1 to 59 as on every page.">
 <style>
 :root{--bg:#f6f1e7;--ink:#2b2418;--line:#cdbf9f;--acc:#6b4f1d}
 *{box-sizing:border-box}html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:15px/1.35 Georgia,serif}
@@ -23,20 +24,30 @@ iframe{width:100%;height:100%;border:0;background:#fff}
 </header>
 <main><iframe id="view" title="Webapp" loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe></main>
 <script>
+// Cedwyn navigator v2. Numbers are the site's own: on bucklerfamily.estate the live /areas.json "nav"
+// is used when it carries all 59 slots once each; otherwise apps.json (built by tools/build_apps.py from the same sources).
 (async()=>{
- const r=await fetch('apps.json?cb='+Date.now()); const m=await r.json(); const A=m.apps;
+ const get=async u=>{const r=await fetch(u+(u.includes('?')?'&':'?')+'cb='+Date.now());if(!r.ok)throw r.status;return r.json()};
+ const m=await get('apps.json'); let A=m.apps; const T=m.total||59; let src='apps.json';
+ if(/(^|\.)bucklerfamily\.estate$/.test(location.hostname)){try{const g=await get('/areas.json'),N=g.nav||[],S=new Set(N.map(n=>n.slot));
+  if(N.length===T&&S.size===T){const by={};A.forEach(a=>by[a.id]=a);
+   A=N.slice().sort((x,y)=>x.slot-y.slot).map(n=>Object.assign({},by[n.id]||{kind:'cedwyn'},{slot:n.slot,id:n.id,title:n.title,url:location.origin+(n.href||n.path)}));src='/areas.json';}}catch(e){}}
  const pick=document.getElementById('pick'), view=document.getElementById('view');
  A.forEach((a,i)=>{const o=document.createElement('option');o.value=i;o.textContent=a.slot+'. '+a.title;pick.appendChild(o)});
- const fit=()=>document.querySelector('main').style.setProperty('--h','0px')||document.documentElement.style.setProperty('--h',document.getElementById('bar').offsetHeight+'px');
- function show(i){i=(i+A.length)%A.length;const a=A[i];pick.value=i;view.src=a.url;
-  document.getElementById('slot').textContent=a.slot+' of '+m.total;
-  document.getElementById('meta').textContent=a.status+' · '+m.split+' of '+m.total+' webapps in their own repositories';
-  history.replaceState(null,'','#'+a.id);fit();}
+ const fit=()=>document.documentElement.style.setProperty('--h',document.getElementById('bar').offsetHeight+'px');
+ const soon=a=>'<!doctype html><meta name="viewport" content="width=device-width,initial-scale=1"><body style="margin:0;display:grid;place-items:center;height:100vh;background:#f6f1e7;color:#2b2418;font:17px Georgia,serif"><p>'+a.slot+' of '+T+' · Coming soon</p>';
+ function show(i){i=(i+A.length)%A.length;const a=A[i];pick.value=i;
+  if(a.kind==='coming-soon'){view.removeAttribute('src');view.srcdoc=soon(a);}else{view.removeAttribute('srcdoc');view.src=a.url;}
+  document.getElementById('slot').textContent=a.slot+' of '+T;
+  const k=a.kind==='own-repo'?'own repository':a.kind==='coming-soon'?'coming soon':'served from the main site';
+  document.getElementById('meta').textContent=k+(a.store?' · store: '+a.store:'')+' · '+m.split+' of '+T+' in their own repositories';
+  view.title=a.title+', '+a.slot+' of '+T;history.replaceState(null,'','#'+a.id);fit();}
  document.getElementById('prev').onclick=()=>show(+pick.value-1);
  document.getElementById('next').onclick=()=>show(+pick.value+1);
  pick.onchange=()=>show(+pick.value);
  addEventListener('keydown',e=>{if(e.key==='ArrowLeft')show(+pick.value-1);if(e.key==='ArrowRight')show(+pick.value+1)});
  addEventListener('resize',fit);
  const h=location.hash.slice(1), k=A.findIndex(a=>a.id===h); show(k<0?0:k);
+ document.documentElement.dataset.navSource=src;
 })();
 </script></body></html>

@@ -1,68 +1,696 @@
 {
-  "schema": "cedwyn_navigator/v1",
-  "updated_utc": "2026-11-05T22:05Z",
-  "total": 59,
-  "split": 58,
-  "source": "unclehowell/cedwyn/blob/main/split-repos.json",
-  "apps": [
-    {"slot": 1, "id": "wiki", "title": "Legal Wiki & Evidence", "repo": "unclehowell/cedwyn-wiki", "url": "https://cedwyn.bucklerfamily.estate/wiki/", "status": "own repo (mirror seeding)"},
-    {"slot": 2, "id": "docs", "title": "Docs · Evidence Catalogue", "repo": "unclehowell/cedwyn-docs", "url": "https://cedwyn.bucklerfamily.estate/docs/", "status": "own repo (split-repo)"},
-    {"slot": 3, "id": "wayback", "title": "Wayback Vault", "repo": "unclehowell/cedwyn-wayback", "url": "https://cedwyn.bucklerfamily.estate/wayback/", "status": "own repo (split-repo)"},
-    {"slot": 4, "id": "maps", "title": "Map Room", "repo": "unclehowell/cedwyn-maps", "url": "https://cedwyn.bucklerfamily.estate/maps/", "status": "own repo (split-repo)"},
-    {"slot": 5, "id": "infographic", "title": "The Land Changing Hands", "repo": "unclehowell/cedwyn-infographic", "url": "https://cedwyn.bucklerfamily.estate/infographic/", "status": "own repo (split-repo)"},
-    {"slot": 6, "id": "ebooks", "title": "E-book Shelf", "repo": "unclehowell/cedwyn-ebooks", "url": "https://cedwyn.bucklerfamily.estate/ebooks/", "status": "own repo (split-repo)"},
-    {"slot": 7, "id": "story", "title": "The Story & Documentary", "repo": "unclehowell/cedwyn-story", "url": "https://cedwyn.bucklerfamily.estate/story/", "status": "own repo (mirror seeding)"},
-    {"slot": 8, "id": "thousand-cuts", "title": "1000 Cuts", "repo": null, "url": "https://cedwyn.bucklerfamily.estate/thousand-cuts/", "status": "layer in Research Library (not a separate app)"},
-    {"slot": 9, "id": "fb", "title": "Farm Album", "repo": "unclehowell/cedwyn-fb", "url": "https://cedwyn.bucklerfamily.estate/fb/", "status": "own repo (split-repo)"},
-    {"slot": 10, "id": "arcade", "title": "Arcade", "repo": "unclehowell/cedwyn-arcade", "url": "https://cedwyn.bucklerfamily.estate/arcade/", "status": "own repo (mirror seeding; components also cedwyn-cyberspace, cedwyn-nft-art)"},
-    {"slot": 11, "id": "chess", "title": "Chessboard", "repo": "unclehowell/cedwyn-chess", "url": "https://cedwyn.bucklerfamily.estate/chess/", "status": "own repo (split-repo)"},
-    {"slot": 12, "id": "csscpsg", "title": "Grammar House", "repo": "unclehowell/cedwyn-csscpsg", "url": "https://cedwyn.bucklerfamily.estate/csscpsg/", "status": "own repo (split-repo)"},
-    {"slot": 13, "id": "courtdrills", "title": "Court Drills", "repo": "unclehowell/cedwyn-courtdrills", "url": "https://cedwyn.bucklerfamily.estate/courtdrills/", "status": "own repo (split-repo)"},
-    {"slot": 14, "id": "fcg", "title": "FCG · Security Clearance", "repo": "unclehowell/cedwyn-fcg", "url": "https://cedwyn.bucklerfamily.estate/fcg/", "status": "own repo (split-repo)"},
-    {"slot": 15, "id": "oldbill", "title": "Old Bill · Who Gained, Who Lost", "repo": "unclehowell/cedwyn-oldbill", "url": "https://cedwyn.bucklerfamily.estate/oldbill/", "status": "own repo (split-repo)"},
-    {"slot": 16, "id": "accounts", "title": "Counting House", "repo": "unclehowell/cedwyn-accounts", "url": "https://cedwyn.bucklerfamily.estate/accounts/", "status": "own repo (split-repo)"},
-    {"slot": 17, "id": "authorities", "title": "Public Authorities & Council Chamber", "repo": "unclehowell/cedwyn-authorities", "url": "https://cedwyn.bucklerfamily.estate/authorities/", "status": "own repo (mirror seeding)"},
-    {"slot": 18, "id": "wdtk", "title": "FOI Requests", "repo": "unclehowell/cedwyn-wdtk", "url": "https://cedwyn.bucklerfamily.estate/wdtk/", "status": "own repo (placeholder; durable branch TBD)"},
-    {"slot": 19, "id": "review", "title": "Independent Review", "repo": "unclehowell/cedwyn-review", "url": "https://cedwyn.bucklerfamily.estate/review/", "status": "own repo (mirror seeding)"},
-    {"slot": 20, "id": "research", "title": "Research Library", "repo": "unclehowell/cedwyn-research", "url": "https://cedwyn.bucklerfamily.estate/research/", "status": "own repo (split-repo)"},
-    {"slot": 21, "id": "qa", "title": "Q&A Hall", "repo": "unclehowell/cedwyn-qa", "url": "https://cedwyn.bucklerfamily.estate/qa/", "status": "own repo (split-repo)"},
-    {"slot": 22, "id": "projects", "title": "Project Office", "repo": "unclehowell/cedwyn-projects", "url": "https://cedwyn.bucklerfamily.estate/projects/", "status": "own repo (split-repo)"},
-    {"slot": 23, "id": "app", "title": "Case Office", "repo": "unclehowell/cedwyn-app", "url": "https://cedwyn.bucklerfamily.estate/app/", "status": "own repo (split-repo)"},
-    {"slot": 24, "id": "chat", "title": "Ask the Archive", "repo": "unclehowell/cedwyn-chat", "url": "https://cedwyn.bucklerfamily.estate/chat/", "status": "own repo (split-repo)"},
-    {"slot": 25, "id": "watchtower", "title": "Watchtower", "repo": "unclehowell/cedwyn-watchtower", "url": "https://cedwyn.bucklerfamily.estate/watchtower/", "status": "own repo (split-repo)"},
-    {"slot": 26, "id": "email", "title": "Post Office & Calendar", "repo": "unclehowell/cedwyn-emails", "url": "https://cedwyn.bucklerfamily.estate/email/", "status": "own repo (split-repo)"},
-    {"slot": 27, "id": "dartboard", "title": "Disclosure Dartboard", "repo": "unclehowell/cedwyn-dartboard", "url": "https://cedwyn.bucklerfamily.estate/dartboard/", "status": "own repo (split-repo)"},
-    {"slot": 28, "id": "estate", "title": "Cedwyn Estate", "repo": "unclehowell/cedwyn-estate", "url": "https://cedwyn.bucklerfamily.estate/estate/", "status": "own repo (split-repo)"},
-    {"slot": 29, "id": "directory", "title": "Cedwyn Directory", "repo": "unclehowell/cedwyn-directory", "url": "https://cedwyn.bucklerfamily.estate/directory/", "status": "own repo (split-repo)"},
-    {"slot": 30, "id": "patagonia", "title": "Great House Farm II · Patagonia", "repo": "unclehowell/cedwyn-patagonia", "url": "https://cedwyn.bucklerfamily.estate/patagonia/", "status": "own repo (split-repo)"},
-    {"slot": 31, "id": "wales", "title": "Virtual Tour · Wales", "repo": "unclehowell/cedwyn-wales-3d", "url": "https://cedwyn.bucklerfamily.estate/wales/", "status": "own repo (split-repo; same as wales-3d)"},
-    {"slot": 32, "id": "shop", "title": "Gift Shop & Marketplace", "repo": "unclehowell/cedwyn-shop", "url": "https://cedwyn.bucklerfamily.estate/shop/", "status": "own repo (split-repo)"},
-    {"slot": 33, "id": "familytree", "title": "Family Tree", "repo": "unclehowell/cedwyn-familytree", "url": "https://cedwyn.bucklerfamily.estate/familytree/", "status": "own repo (split-repo)"},
-    {"slot": 34, "id": "kissed-frogs", "title": "Kissed Frogs", "repo": "unclehowell/cedwyn-kissed-frogs", "url": "https://cedwyn.bucklerfamily.estate/kissed-frogs/", "status": "own repo (split-repo)"},
-    {"slot": 35, "id": "whattheydontsay", "title": "What They Don't Say", "repo": "unclehowell/cedwyn-whattheydontsay", "url": "https://cedwyn.bucklerfamily.estate/whattheydontsay/", "status": "own repo (split-repo)"},
-    {"slot": 36, "id": "blog", "title": "Blog", "repo": "unclehowell/cedwyn-blog", "url": "https://cedwyn.bucklerfamily.estate/blog/", "status": "own repo (split-repo)"},
-    {"slot": 37, "id": "hubspot", "title": "HubSpot · Task Control", "repo": "unclehowell/cedwyn-hubspot", "url": "https://cedwyn.bucklerfamily.estate/hubspot/", "status": "own repo (mirror seeding)"},
-    {"slot": 38, "id": "that-old-chestnut", "title": "That Old Chestnut", "repo": "unclehowell/cedwyn-that-old-chestnut", "url": "https://cedwyn.bucklerfamily.estate/that-old-chestnut/", "status": "own repo (split-repo)"},
-    {"slot": 39, "id": "forensic", "title": "Forensic Assessments", "repo": "unclehowell/cedwyn-forensic", "url": "https://cedwyn.bucklerfamily.estate/forensic/", "status": "own repo (split-repo)"},
-    {"slot": 40, "id": "mr-wolf", "title": "Mr Wolf", "repo": "unclehowell/cedwyn-mr-wolf", "url": "https://cedwyn.bucklerfamily.estate/mr-wolf/", "status": "own repo (split-repo)"},
-    {"slot": 41, "id": "wales-3d", "title": "Wales 3D world", "repo": "unclehowell/cedwyn-wales-3d", "url": "https://cedwyn.bucklerfamily.estate/wales/", "status": "own repo (split-repo)"},
-    {"slot": 42, "id": "tithe-h3", "title": "Tithe H3", "repo": "unclehowell/cedwyn-tithe-h3", "url": "https://cedwyn.bucklerfamily.estate/tithe-h3/", "status": "own repo (split-repo)"},
-    {"slot": 43, "id": "cloudflare", "title": "Cloudflare", "repo": "unclehowell/cedwyn-cloudflare", "url": "https://cedwyn.bucklerfamily.estate/cloudflare/", "status": "own repo (split-repo)"},
-    {"slot": 44, "id": "spill", "title": "Spill", "repo": "unclehowell/cedwyn-spill", "url": "https://cedwyn.bucklerfamily.estate/spill/", "status": "own repo (split-repo)"},
-    {"slot": 45, "id": "analytics", "title": "Analytics", "repo": "unclehowell/cedwyn-analytics", "url": "https://cedwyn.bucklerfamily.estate/analytics/", "status": "own repo (split-repo)"},
-    {"slot": 46, "id": "chubut-h3", "title": "Chubut H3", "repo": "unclehowell/cedwyn-chubut-h3", "url": "https://cedwyn.bucklerfamily.estate/chubut-h3/", "status": "own repo (split-repo)"},
-    {"slot": 47, "id": "garden", "title": "Flower Garden", "repo": "unclehowell/cedwyn-garden", "url": "https://cedwyn.bucklerfamily.estate/garden/", "status": "own repo (mirror seeding)"},
-    {"slot": 48, "id": "argentina-3d", "title": "Argentina Tŷ Mawr 3D world", "repo": "unclehowell/cedwyn-argentina-3d", "url": "https://cedwyn.bucklerfamily.estate/argentina/", "status": "own repo (split-repo)"},
-    {"slot": 49, "id": "hive", "title": "Hive · agents and jobs", "repo": "unclehowell/cedwyn-hive", "url": "https://cedwyn.bucklerfamily.estate/hive/", "status": "own repo (split-repo)"},
-    {"slot": 50, "id": "terrain", "title": "Terrain · Cedwyn Estate in 3D", "repo": "unclehowell/terrain", "url": "https://cedwyn.bucklerfamily.estate/terrain/", "status": "own repo (pre-existing)"},
-    {"slot": 51, "id": "revival-ar", "title": "Revival AR · Llandough", "repo": "unclehowell/cedwyn-revival-ar", "url": "https://cedwyn.bucklerfamily.estate/revival-ar/", "status": "own repo (mirror seeding)"},
-    {"slot": 52, "id": "peekaboo", "title": "Peekaboo · records found despite their labels", "repo": "unclehowell/cedwyn-peekaboo", "url": "https://cedwyn.bucklerfamily.estate/peekaboo/", "status": "own repo (mirror seeding)"},
-    {"slot": 53, "id": "bloculous", "title": "Bloculous · protocol and geodesic domes", "repo": "unclehowell/cedwyn-bloculous", "url": "https://cedwyn.bucklerfamily.estate/bloculous/", "status": "own repo (mirror seeding)"},
-    {"slot": 54, "id": "theories", "title": "Theories · working theories", "repo": "unclehowell/cedwyn-theories", "url": "https://cedwyn.bucklerfamily.estate/theories/", "status": "own repo (mirror seeding)"},
-    {"slot": 55, "id": "garden-store", "title": "Garden Store", "repo": "unclehowell/cedwyn-garden-store", "url": "https://cedwyn.bucklerfamily.estate/garden-store/", "status": "own repo (mirror seeding)"},
-    {"slot": 56, "id": "storytime", "title": "Storytime", "repo": "unclehowell/cedwyn-storytime", "url": "https://cedwyn.bucklerfamily.estate/storytime/", "status": "own repo (mirror seeding)"},
-    {"slot": 57, "id": "molt", "title": "Molt · every change and comment", "repo": "unclehowell/cedwyn-molt", "url": "https://cedwyn.bucklerfamily.estate/molt/", "status": "own repo (mirror seeding)"},
-    {"slot": 58, "id": "gallery", "title": "Gallery", "repo": "unclehowell/cedwyn-gallery", "url": "https://cedwyn.bucklerfamily.estate/gallery/", "status": "own repo (mirror seeding)"},
-    {"slot": 59, "id": "internetarchive", "title": "Internet Archive sources", "repo": "unclehowell/cedwyn-internetarchive", "url": "https://cedwyn.bucklerfamily.estate/internetarchive/", "status": "own repo (mirror seeding)"}
-  ]
+ "schema": "cedwyn_navigator/v2",
+ "updated_utc": "2026-11-08T07:56Z",
+ "total": 59,
+ "split": 53,
+ "stores": 32,
+ "source": {
+  "registry": "https://bucklerfamily.estate/areas.json",
+  "themes": "unclehowell/cedwyn@main:themes.json",
+  "coming_soon": "unclehowell/cedwyn@main:data/coming-soon.json",
+  "repos": "unclehowell/cedwyn@main:split-repos.json"
+ },
+ "apps": [
+  {
+   "slot": 1,
+   "id": "wiki",
+   "title": "Legal Wiki & Evidence",
+   "url": "https://bucklerfamily.estate/wiki/",
+   "repo": "unclehowell/cedwyn-wiki",
+   "kind": "own-repo",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "slot": 2,
+   "id": "docs",
+   "title": "Docs · Evidence Catalogue",
+   "url": "https://bucklerfamily.estate/docs/",
+   "repo": "unclehowell/cedwyn-docs",
+   "kind": "own-repo",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "slot": 3,
+   "id": "wayback",
+   "title": "Wayback Vault",
+   "url": "https://bucklerfamily.estate/wayback/",
+   "repo": "unclehowell/cedwyn-wayback",
+   "kind": "own-repo",
+   "store": "not yet (served-branch fix first)"
+  },
+  {
+   "slot": 4,
+   "id": "maps",
+   "title": "Map Room",
+   "url": "https://bucklerfamily.estate/maps/",
+   "repo": "unclehowell/cedwyn-maps",
+   "kind": "own-repo",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "slot": 5,
+   "id": "infographic",
+   "title": "The Land Changing Hands",
+   "url": "https://bucklerfamily.estate/infographic/",
+   "repo": "unclehowell/cedwyn-infographic",
+   "kind": "own-repo",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "slot": 6,
+   "id": "ebooks",
+   "title": "E-book Shelf",
+   "url": "https://bucklerfamily.estate/ebooks/",
+   "repo": "unclehowell/cedwyn-ebooks",
+   "kind": "own-repo",
+   "store": "not yet (waits on the date-fix PR)"
+  },
+  {
+   "slot": 7,
+   "id": "story",
+   "title": "The Story & Documentary",
+   "url": "https://bucklerfamily.estate/story/",
+   "repo": "unclehowell/cedwyn-story",
+   "kind": "own-repo",
+   "store": "not yet (waits on the date-fix PR)"
+  },
+  {
+   "slot": 8,
+   "id": "thousand-cuts",
+   "title": "1000 Cuts",
+   "url": "https://bucklerfamily.estate/thousand-cuts/",
+   "repo": null,
+   "kind": "cedwyn"
+  },
+  {
+   "slot": 9,
+   "id": "fb",
+   "title": "Farm Album",
+   "url": "https://bucklerfamily.estate/fb/",
+   "repo": "unclehowell/cedwyn-fb",
+   "kind": "own-repo",
+   "store": "not yet (waits on the date-fix PR)"
+  },
+  {
+   "slot": 10,
+   "id": "arcade",
+   "title": "Arcade",
+   "url": "https://bucklerfamily.estate/arcade/",
+   "repo": "unclehowell/cedwyn-arcade",
+   "kind": "own-repo",
+   "store": "not yet (served-branch fix first)"
+  },
+  {
+   "slot": 11,
+   "id": "chess",
+   "title": "Chessboard",
+   "url": "https://bucklerfamily.estate/chess/",
+   "repo": "unclehowell/cedwyn-chess",
+   "kind": "own-repo",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "slot": 12,
+   "id": "csscpsg",
+   "title": "Grammar House",
+   "url": "https://bucklerfamily.estate/csscpsg/",
+   "repo": "unclehowell/cedwyn-csscpsg",
+   "kind": "own-repo",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "slot": 13,
+   "id": "courtdrills",
+   "title": "Court Drills",
+   "url": "https://bucklerfamily.estate/courtdrills/",
+   "repo": "unclehowell/cedwyn-courtdrills",
+   "kind": "own-repo",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "slot": 14,
+   "id": "fcg",
+   "title": "FCG · Security Clearance",
+   "url": "https://bucklerfamily.estate/online/fcg/",
+   "repo": "unclehowell/cedwyn-fcg",
+   "kind": "own-repo",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "slot": 15,
+   "id": "oldbill",
+   "title": "Old Bill · Who Gained, Who Lost",
+   "url": "https://bucklerfamily.estate/oldbill/",
+   "repo": "unclehowell/cedwyn-oldbill",
+   "kind": "own-repo",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "slot": 16,
+   "id": "accounts",
+   "title": "Counting House",
+   "url": "https://bucklerfamily.estate/accounts/",
+   "repo": "unclehowell/cedwyn-accounts",
+   "kind": "own-repo",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "slot": 17,
+   "id": "authorities",
+   "title": "Public Authorities & Council Chamber",
+   "url": "https://bucklerfamily.estate/online/authorities/",
+   "repo": "unclehowell/cedwyn-authorities",
+   "kind": "own-repo",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "slot": 18,
+   "id": "wdtk",
+   "title": "FOI Requests",
+   "url": "https://bucklerfamily.estate/online/wdtk/",
+   "repo": "unclehowell/cedwyn-wdtk",
+   "kind": "own-repo",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "slot": 19,
+   "id": "review",
+   "title": "Independent Review",
+   "url": "https://bucklerfamily.estate/online/review/",
+   "repo": "unclehowell/cedwyn-review",
+   "kind": "own-repo",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "slot": 20,
+   "id": "research",
+   "title": "Research Library",
+   "url": "https://bucklerfamily.estate/research/",
+   "repo": "unclehowell/cedwyn-research",
+   "kind": "own-repo",
+   "store": "not yet"
+  },
+  {
+   "slot": 21,
+   "id": "qa",
+   "title": "Q&A Hall",
+   "url": "https://bucklerfamily.estate/online/qa/",
+   "repo": "unclehowell/cedwyn-qa",
+   "kind": "own-repo",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "slot": 22,
+   "id": "projects",
+   "title": "Project Office",
+   "url": "https://bucklerfamily.estate/online/projects/",
+   "repo": "unclehowell/cedwyn-projects",
+   "kind": "own-repo",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "slot": 23,
+   "id": "app",
+   "title": "Case Office",
+   "url": "https://bucklerfamily.estate/app/",
+   "repo": "unclehowell/cedwyn-app",
+   "kind": "own-repo",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "slot": 24,
+   "id": "chat",
+   "title": "Ask the Archive",
+   "url": "https://bucklerfamily.estate/online/chat/",
+   "repo": "unclehowell/cedwyn-chat",
+   "kind": "own-repo",
+   "store": "none needed",
+   "sync": "none (cites no catalogue records)"
+  },
+  {
+   "slot": 25,
+   "id": "watchtower",
+   "title": "Watchtower",
+   "url": "https://bucklerfamily.estate/online/watchtower/",
+   "repo": "unclehowell/cedwyn-watchtower",
+   "kind": "own-repo",
+   "store": "not yet (served-branch fix first)"
+  },
+  {
+   "slot": 26,
+   "id": "email",
+   "title": "Post Office & Calendar",
+   "url": "https://bucklerfamily.estate/online/email/",
+   "repo": "unclehowell/cedwyn-emails",
+   "kind": "own-repo",
+   "store": "not yet (served-branch fix first)"
+  },
+  {
+   "slot": 27,
+   "id": "dartboard",
+   "title": "Disclosure Dartboard",
+   "url": "https://bucklerfamily.estate/online/dartboard/",
+   "repo": "unclehowell/cedwyn-dartboard",
+   "kind": "own-repo",
+   "store": "own design: reads its own source live"
+  },
+  {
+   "slot": 28,
+   "id": "estate",
+   "title": "Cedwyn Estate",
+   "url": "https://bucklerfamily.estate/estate/",
+   "repo": "unclehowell/cedwyn-estate",
+   "kind": "own-repo",
+   "store": "none needed",
+   "sync": "none (cites no catalogue records)"
+  },
+  {
+   "slot": 29,
+   "id": "directory",
+   "title": "Cedwyn Directory",
+   "url": "https://bucklerfamily.estate/directory/",
+   "repo": "unclehowell/cedwyn-directory",
+   "kind": "own-repo",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "slot": 30,
+   "id": "patagonia",
+   "title": "Great House Farm II · Patagonia",
+   "url": "https://bucklerfamily.estate/patagonia/",
+   "repo": "unclehowell/cedwyn-patagonia",
+   "kind": "own-repo",
+   "store": "none needed",
+   "sync": "none (cites no catalogue records)"
+  },
+  {
+   "slot": 31,
+   "id": "wales",
+   "title": "Virtual Tour · Wales",
+   "url": "https://bucklerfamily.estate/wales/",
+   "repo": "unclehowell/cedwyn-wales-3d",
+   "kind": "own-repo",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "slot": 32,
+   "id": "shop",
+   "title": "Gift Shop & Marketplace",
+   "url": "https://bucklerfamily.estate/shop/",
+   "repo": "unclehowell/cedwyn-shop",
+   "kind": "own-repo",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "slot": 33,
+   "id": "familytree",
+   "title": "Family Tree",
+   "url": "https://bucklerfamily.estate/familytree/",
+   "repo": "unclehowell/cedwyn-familytree",
+   "kind": "own-repo",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "slot": 34,
+   "id": "kissed-frogs",
+   "title": "Kissed Frogs",
+   "url": "https://bucklerfamily.estate/kissed-frogs/",
+   "repo": "unclehowell/cedwyn-kissed-frogs",
+   "kind": "own-repo",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "slot": 35,
+   "id": "whattheydontsay",
+   "title": "What They Don't Say",
+   "url": "https://bucklerfamily.estate/online/whattheydontsay/",
+   "repo": "unclehowell/cedwyn-whattheydontsay",
+   "kind": "own-repo",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "slot": 36,
+   "id": "blog",
+   "title": "Blog",
+   "url": "https://bucklerfamily.estate/blog/",
+   "repo": "unclehowell/cedwyn-blog",
+   "kind": "own-repo",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "slot": 37,
+   "id": "hubspot",
+   "title": "HubSpot · Task Control",
+   "url": "https://bucklerfamily.estate/online/hubspot/",
+   "repo": "unclehowell/cedwyn-hubspot",
+   "kind": "own-repo",
+   "store": "not yet"
+  },
+  {
+   "slot": 38,
+   "id": "that-old-chestnut",
+   "title": "That Old Chestnut",
+   "url": "https://bucklerfamily.estate/online/that-old-chestnut/",
+   "repo": "unclehowell/cedwyn-that-old-chestnut",
+   "kind": "own-repo",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "slot": 39,
+   "id": "forensic",
+   "title": "Forensic Assessments",
+   "url": "https://bucklerfamily.estate/online/forensic/",
+   "repo": "unclehowell/cedwyn-forensic",
+   "kind": "own-repo",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "slot": 40,
+   "id": "mr-wolf",
+   "title": "Mr Wolf",
+   "url": "https://bucklerfamily.estate/mr-wolf/",
+   "repo": "unclehowell/cedwyn-mr-wolf",
+   "kind": "own-repo",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "slot": 41,
+   "id": "releases",
+   "title": "The Release Machine",
+   "url": "https://bucklerfamily.estate/releases/",
+   "repo": "unclehowell/cedwyn-releases",
+   "kind": "own-repo",
+   "store": "none needed",
+   "sync": "none (cites no catalogue records)"
+  },
+  {
+   "slot": 42,
+   "id": "tithe-h3",
+   "title": "Tithe H3",
+   "url": "https://bucklerfamily.estate/tithe-h3/",
+   "repo": "unclehowell/cedwyn-tithe-h3",
+   "kind": "own-repo",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "slot": 43,
+   "id": "cloudflare",
+   "title": "Cloudflare",
+   "url": "https://bucklerfamily.estate/cloudflare/",
+   "repo": "unclehowell/cedwyn-cloudflare",
+   "kind": "own-repo",
+   "store": "none needed",
+   "sync": "none (cites no catalogue records)"
+  },
+  {
+   "slot": 44,
+   "id": "spill",
+   "title": "Spill",
+   "url": "https://bucklerfamily.estate/spill/",
+   "repo": "unclehowell/cedwyn-spill",
+   "kind": "own-repo",
+   "store": "none needed",
+   "sync": "none (cites no catalogue records)"
+  },
+  {
+   "slot": 45,
+   "id": "analytics",
+   "title": "Analytics",
+   "url": "https://bucklerfamily.estate/analytics/",
+   "repo": "unclehowell/cedwyn-analytics",
+   "kind": "own-repo",
+   "store": "none needed",
+   "sync": "none (cites no catalogue records)"
+  },
+  {
+   "slot": 46,
+   "id": "chubut-h3",
+   "title": "Chubut H3",
+   "url": "https://bucklerfamily.estate/chubut-h3/",
+   "repo": "unclehowell/cedwyn-chubut-h3",
+   "kind": "own-repo",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "slot": 47,
+   "id": "garden",
+   "title": "Flower Garden",
+   "url": "https://bucklerfamily.estate/garden/",
+   "repo": "unclehowell/cedwyn-garden",
+   "kind": "own-repo",
+   "store": "not yet (served-branch fix first)"
+  },
+  {
+   "slot": 48,
+   "id": "documentary",
+   "title": "Cedwyn · documentary",
+   "url": "https://bucklerfamily.estate/documentary/",
+   "repo": "unclehowell/cedwyn-documentary",
+   "kind": "own-repo",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "slot": 49,
+   "id": "nomenclature",
+   "title": "Nomenclature",
+   "url": "https://bucklerfamily.estate/nomenclature/",
+   "repo": "unclehowell/cedwyn-nomenclature",
+   "kind": "own-repo",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "slot": 50,
+   "id": "records",
+   "title": "Primary Records",
+   "url": "https://bucklerfamily.estate/records/",
+   "repo": "unclehowell/cedwyn-records",
+   "kind": "own-repo",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "slot": 51,
+   "id": "fb2",
+   "title": "farmbook 2 · Today",
+   "url": "https://bucklerfamily.estate/fb2/",
+   "repo": null,
+   "kind": "cedwyn"
+  },
+  {
+   "slot": 52,
+   "id": "nft-art",
+   "title": "The Garden Gallery",
+   "url": "https://bucklerfamily.estate/nft-art/",
+   "repo": "unclehowell/cedwyn-nft-art",
+   "kind": "own-repo",
+   "store": "none needed",
+   "sync": "none (cites no catalogue records)"
+  },
+  {
+   "slot": 53,
+   "id": "cyberspace",
+   "title": "The Digital Estate",
+   "url": "https://bucklerfamily.estate/cyberspace/",
+   "repo": "unclehowell/cedwyn-cyberspace",
+   "kind": "own-repo",
+   "store": "none needed",
+   "sync": "none (cites no catalogue records)"
+  },
+  {
+   "slot": 54,
+   "id": "meeting",
+   "title": "The Council Chamber",
+   "url": "https://bucklerfamily.estate/meeting/",
+   "repo": "unclehowell/cedwyn-meeting",
+   "kind": "own-repo",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "slot": 55,
+   "id": "emails",
+   "title": "The Post Office · Calendar",
+   "url": "https://bucklerfamily.estate/emails/",
+   "repo": "unclehowell/cedwyn-emails",
+   "kind": "own-repo",
+   "store": "not yet (served-branch fix first)"
+  },
+  {
+   "slot": 56,
+   "id": "coming-soon-56",
+   "title": "Coming soon",
+   "url": "https://bucklerfamily.estate/coming-soon-56/",
+   "repo": "unclehowell/coming-soon-56",
+   "kind": "coming-soon"
+  },
+  {
+   "slot": 57,
+   "id": "coming-soon-57",
+   "title": "Coming soon",
+   "url": "https://bucklerfamily.estate/coming-soon-57/",
+   "repo": "unclehowell/coming-soon-57",
+   "kind": "coming-soon"
+  },
+  {
+   "slot": 58,
+   "id": "coming-soon-58",
+   "title": "Coming soon",
+   "url": "https://bucklerfamily.estate/coming-soon-58/",
+   "repo": "unclehowell/coming-soon-58",
+   "kind": "coming-soon"
+  },
+  {
+   "slot": 59,
+   "id": "coming-soon-59",
+   "title": "Coming soon",
+   "url": "https://bucklerfamily.estate/coming-soon-59/",
+   "repo": "unclehowell/coming-soon-59",
+   "kind": "coming-soon"
+  }
+ ],
+ "unregistered": [
+  {
+   "id": "argentina-3d",
+   "title": "Argentina Tŷ Mawr 3D world",
+   "url": "https://bucklerfamily.estate/argentina/",
+   "repo": "unclehowell/cedwyn-argentina-3d",
+   "kind": "own-repo, no slot",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "id": "hive",
+   "title": "Hive",
+   "url": "https://bucklerfamily.estate/hive/",
+   "repo": "unclehowell/cedwyn-hive",
+   "kind": "own-repo, no slot",
+   "store": "own design: reads the hive board live"
+  },
+  {
+   "id": "revival-ar",
+   "title": "Revival AR",
+   "url": "https://bucklerfamily.estate/revival-ar/",
+   "repo": "unclehowell/cedwyn-revival-ar",
+   "kind": "own-repo, no slot",
+   "store": "not yet"
+  },
+  {
+   "id": "peekaboo",
+   "title": "Peekaboo",
+   "url": "https://bucklerfamily.estate/peekaboo/",
+   "repo": "unclehowell/cedwyn-peekaboo",
+   "kind": "own-repo, no slot",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "id": "bloculous",
+   "title": "Bloculous",
+   "url": "https://bucklerfamily.estate/bloculous/",
+   "repo": "unclehowell/cedwyn-bloculous",
+   "kind": "own-repo, no slot",
+   "store": "none needed",
+   "sync": "none (cites no catalogue records)"
+  },
+  {
+   "id": "theories",
+   "title": "Theories",
+   "url": "https://bucklerfamily.estate/theories/",
+   "repo": "unclehowell/cedwyn-theories",
+   "kind": "own-repo, no slot",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "id": "garden-store",
+   "title": "Garden Store",
+   "url": "https://bucklerfamily.estate/garden-store/",
+   "repo": "unclehowell/cedwyn-garden-store",
+   "kind": "own-repo, no slot",
+   "store": "none needed",
+   "sync": "none (cites no catalogue records)"
+  },
+  {
+   "id": "storytime",
+   "title": "Storytime",
+   "url": "https://bucklerfamily.estate/storytime/",
+   "repo": "unclehowell/cedwyn-storytime",
+   "kind": "own-repo, no slot",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "id": "molt",
+   "title": "Molt",
+   "url": "https://bucklerfamily.estate/molt/",
+   "repo": "unclehowell/cedwyn-molt",
+   "kind": "own-repo, no slot",
+   "store": "none needed",
+   "sync": "none (cites no catalogue records)"
+  },
+  {
+   "id": "gallery",
+   "title": "Gallery",
+   "url": "https://bucklerfamily.estate/gallery/",
+   "repo": "unclehowell/cedwyn-gallery",
+   "kind": "own-repo, no slot",
+   "store": "not yet (served-branch fix first)"
+  },
+  {
+   "id": "internetarchive",
+   "title": "Internet Archive Sources",
+   "url": "https://bucklerfamily.estate/internetarchive/",
+   "repo": "unclehowell/cedwyn-internetarchive",
+   "kind": "own-repo, no slot",
+   "store": "own store (data from the central catalogue)",
+   "sync": "every 6 h (sync-central.yml)"
+  },
+  {
+   "id": "terrain",
+   "title": "Terrain",
+   "url": "https://bucklerfamily.estate/terrain/",
+   "repo": "unclehowell/terrain",
+   "kind": "own-repo, no slot",
+   "store": "not yet"
+  },
+  {
+   "id": "settings",
+   "title": "Display settings",
+   "url": "https://bucklerfamily.estate/settings/",
+   "repo": "unclehowell/cedwyn-settings",
+   "kind": "own-repo, no slot",
+   "store": "none needed",
+   "sync": "none (cites no catalogue records)"
+  }
+ ]
 }
