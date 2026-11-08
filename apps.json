@@ -1,14 +1,14 @@
 {
  "schema": "cedwyn_navigator/v2",
- "updated_utc": "2026-11-08T03:55Z",
+ "updated_utc": "2026-11-08T07:56Z",
  "total": 59,
  "split": 53,
  "stores": 32,
  "source": {
   "registry": "https://bucklerfamily.estate/areas.json",
-  "themes": "unclehowell/cedwyn@6a4849bb28cc02a23f34034947d6f94bd13d8afa:themes.json",
-  "coming_soon": "unclehowell/cedwyn@6a4849bb28cc02a23f34034947d6f94bd13d8afa:data/coming-soon.json",
-  "repos": "unclehowell/cedwyn@6a4849bb28cc02a23f34034947d6f94bd13d8afa:split-repos.json"
+  "themes": "unclehowell/cedwyn@main:themes.json",
+  "coming_soon": "unclehowell/cedwyn@main:data/coming-soon.json",
+  "repos": "unclehowell/cedwyn@main:split-repos.json"
  },
  "apps": [
   {

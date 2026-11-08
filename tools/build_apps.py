@@ -36,8 +36,10 @@ for tid, t in own.items():
     if t['slot'] in reg and reg[t['slot']]['id'] != tid: sys.exit('slot %d claimed by %s and %s' % (t['slot'], reg[t['slot']]['id'], tid))
     reg[t['slot']] = dict(slot=t['slot'], id=tid, title=t.get('title') or tid, path='/%s/' % tid, href='/%s/' % tid, aliases=[])
 for s in soon.get('slots', []):
-    reg.setdefault(s['slot'], dict(slot=s['slot'], id=s['id'], title='Coming soon', path=s['path'], href=s['path'], aliases=[],
-                                   repo=s['repo'], kind='coming-soon'))
+    e = reg.setdefault(s['slot'], dict(slot=s['slot'], id=s['id'], title='Coming soon', path=s['path'], href=s['path'], aliases=[],
+                                       repo=s['repo'], kind='coming-soon'))
+    # since the 8 Nov build (main 8d4dba1) the live /areas.json nav lists the placeholders itself; keep their repo
+    if e['id'] == s['id']: e.update(repo=s['repo'], kind='coming-soon')
 if sorted(reg) != list(range(1, of + 1)): sys.exit('slots not 1..%d exactly once: missing %s' % (of, [i for i in range(1, of + 1) if i not in reg]))
 prev = {}
 try: prev = {x.get('repo'): x for x in json.load(open(a.out)).get('apps', []) + json.load(open(a.out)).get('unregistered', [])}
