@@ -1,42 +1,281 @@
-<!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Cedwyn Estate · navigator</title>
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#111619">
+<meta name="description" content="Cedwyn Estate dashboard and webapp navigator.">
+<title>Cedwyn Estate · Dashboard</title>
 <style>
-:root{--bg:#f6f1e7;--ink:#2b2418;--line:#cdbf9f;--acc:#6b4f1d}
-*{box-sizing:border-box}html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);font:15px/1.35 Georgia,serif}
-header{display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .6rem;padding:.5rem .7rem;border-bottom:1px solid var(--line)}
-header h1{font-size:1rem;margin:0 .4rem 0 0;white-space:nowrap}
-#slot{font-variant-numeric:tabular-nums;white-space:nowrap}
-button,select{font:inherit;color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:6px;padding:.3rem .55rem;min-height:36px}
-select{flex:1 1 12rem;min-width:0}
-#meta{width:100%;font-size:.8rem;opacity:.75}
-main{position:absolute;top:var(--h,96px);left:0;right:0;bottom:0}
-iframe{width:100%;height:100%;border:0;background:#fff}
-</style></head><body>
-<header id="bar">
-<h1>Cedwyn Estate</h1>
-<button id="prev" aria-label="Previous webapp">&#8592;</button>
-<span id="slot">– of 59</span>
-<button id="next" aria-label="Next webapp">&#8594;</button>
-<select id="pick" aria-label="Choose a webapp"></select>
-<div id="meta"></div>
+:root{color-scheme:dark;--bg:#111619;--panel:#192126;--raised:#202a30;--ink:#edf0e9;--muted:#a1adb0;--line:#39464b;--gold:#d7b16b;--teal:#77cdbb;--blue:#7caddb;--rose:#cb8e80;--violet:#ae9bd2;--bar-height:68px}
+*{box-sizing:border-box}
+html,body{width:100%;height:100%;margin:0}
+body{display:flex;flex-direction:column;min-height:100%;background:var(--bg);color:var(--ink);font:14px/1.35 ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+button,select{font:inherit;color:inherit}button{cursor:pointer}
+button:focus-visible,select:focus-visible,a:focus-visible,svg [tabindex="0"]:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.topbar{min-height:var(--bar-height);display:flex;align-items:center;justify-content:space-between;gap:14px;padding:10px clamp(12px,2.3vw,30px);border-bottom:1px solid var(--line);background:#151c20}
+.brand{flex:0 0 auto;color:var(--gold);text-decoration:none;font:700 12px/1 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.2em;text-transform:uppercase}
+.tools{display:flex;align-items:center;gap:7px;min-width:0}
+.tool-button,.tool-select{min-height:38px;padding:7px 11px;border:1px solid var(--line);border-radius:6px;background:var(--panel);color:var(--ink)}
+.tool-button:hover,.tool-select:hover{border-color:var(--gold);background:var(--raised)}
+.tool-button.icon{min-width:38px;padding:5px;font-size:19px;line-height:1}
+#slot{min-width:78px;text-align:center;color:var(--muted);font:11px/1 ui-monospace,SFMono-Regular,Consolas,monospace}
+#pick{min-width:190px;max-width:min(32vw,340px);background:#1b2429}
+#sourceStatus{min-width:70px;text-align:right;color:var(--teal);font:10px/1 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.08em}
+main{flex:1;min-height:0;position:relative}
+#dashboardView{height:100%;overflow:auto;padding:clamp(14px,2vw,28px)}
+.dashboard{max-width:1480px;margin:0 auto;display:grid;gap:16px}
+.gauge-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.gauge-card{width:100%;min-height:158px;display:grid;grid-template-columns:1fr auto;align-items:center;gap:12px;padding:18px 20px;border:1px solid var(--line);border-radius:10px;background:var(--panel);text-align:left;transition:border-color .15s,background .15s}
+.gauge-card:hover{border-color:var(--gold);background:var(--raised)}
+.gauge-label,.panel-title,.bar-label{color:var(--muted);font:600 10px/1.3 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.14em;text-transform:uppercase}
+.gauge-label{align-self:start;padding-top:5px}
+.gauge-ring{--ratio:0;position:relative;width:112px;height:112px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--gold) calc(var(--ratio)*1%),#344147 0)}
+.gauge-ring:before{content:"";position:absolute;inset:7px;border-radius:50%;background:var(--panel)}
+.gauge-value{position:relative;z-index:1;color:var(--ink);font:500 31px/1 ui-monospace,SFMono-Regular,Consolas,monospace}
+.panel{min-width:0;border:1px solid var(--line);border-radius:10px;background:var(--panel);padding:17px 18px 18px}
+.panel-title{margin:0 0 18px}
+.chart-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.45fr);gap:16px}
+.bar-list{display:grid;gap:7px}
+.bar-row{width:100%;display:grid;grid-template-columns:minmax(94px,118px) 1fr 34px;align-items:center;gap:12px;min-height:36px;padding:4px 5px;border:1px solid transparent;border-radius:5px;background:transparent;text-align:left}
+.bar-row:hover{border-color:var(--line);background:var(--raised)}
+.bar-label{font-size:10px;letter-spacing:.08em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar-track{height:12px;overflow:hidden;border-radius:2px;background:#2a363b}
+.bar-fill{display:block;height:100%;min-width:2px;border-radius:2px;background:var(--gold)}
+.bar-value{color:var(--ink);text-align:right;font:12px/1 ui-monospace,SFMono-Regular,Consolas,monospace}
+.scatter-scroll{overflow-x:auto;overscroll-behavior-inline:contain}
+#scatterSvg{display:block;width:100%;min-width:620px;height:auto;max-height:370px}
+.grid-line{stroke:#344147;stroke-width:1}
+.axis-label{fill:var(--muted);font:600 10px ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.08em}
+.axis-tick{fill:#849196;font:10px ui-monospace,SFMono-Regular,Consolas,monospace}
+.dot{stroke:#111619;stroke-width:1.5;cursor:pointer;opacity:.92}
+.dot:hover,.dot:focus{stroke:#fff;stroke-width:2.5;opacity:1}
+.g-0{fill:var(--gold)}.g-1{fill:var(--teal)}.g-2{fill:var(--blue)}.g-3{fill:var(--rose)}.g-4{fill:var(--violet)}.g-5{fill:#c4ca83}.g-6{fill:#dd9ec8}.g-7{fill:#9db8a7}
+.bar-fill.g-0{background:var(--gold)}.bar-fill.g-1{background:var(--teal)}.bar-fill.g-2{background:var(--blue)}.bar-fill.g-3{background:var(--rose)}.bar-fill.g-4{background:var(--violet)}.bar-fill.g-5{background:#c4ca83}.bar-fill.g-6{background:#dd9ec8}.bar-fill.g-7{background:#9db8a7}
+.source-line{display:flex;justify-content:space-between;gap:12px;padding:2px 3px 0;color:#718087;font:10px/1.2 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.08em;text-transform:uppercase}
+#appView{height:100%;min-height:0}#appView[hidden],#dashboardView[hidden]{display:none!important}
+#view{display:block;width:100%;height:100%;border:0;background:#fff}
+dialog{width:min(560px,calc(100% - 32px));max-width:560px;margin:auto;padding:0;border:1px solid #59666a;border-radius:10px;background:#192126;color:var(--ink);box-shadow:0 24px 90px rgba(0,0,0,.55)}
+dialog::backdrop{background:rgba(3,7,9,.78);backdrop-filter:blur(3px)}
+.dialog-head{display:flex;align-items:center;justify-content:space-between;padding:12px 14px;border-bottom:1px solid var(--line)}
+.dialog-label{color:var(--muted);font:600 10px/1 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:.16em}
+.dialog-close{width:32px;height:32px;border:1px solid var(--line);border-radius:5px;background:var(--raised);color:var(--ink);font-size:19px;line-height:1}
+.docs-url{display:block;margin:0;padding:24px 18px 26px;color:var(--gold);font:13px/1.5 ui-monospace,SFMono-Regular,Consolas,monospace;overflow-wrap:anywhere;text-decoration:none}
+.docs-url:hover{text-decoration:underline}
+@media(max-width:760px){
+  :root{--bar-height:106px}.topbar{align-items:flex-start;flex-direction:column;gap:9px;padding:10px 12px}.tools{width:100%;gap:5px}
+  .tool-button,.tool-select{min-height:36px;padding:6px 8px}#pick{flex:1;min-width:0;max-width:none}#sourceStatus{min-width:56px;font-size:9px}
+  .gauge-grid{gap:8px}.gauge-card{min-height:128px;grid-template-columns:1fr;padding:10px 9px;gap:8px;text-align:center}
+  .gauge-label{align-self:auto;padding:0}.gauge-ring{width:84px;height:84px;margin:0 auto}.gauge-value{font-size:25px}
+  .chart-grid{grid-template-columns:1fr}#dashboardView{padding:12px}
+}
+@media(max-width:390px){
+  .brand{font-size:11px}#sourceStatus{display:none}.gauge-card{min-height:118px}.gauge-ring{width:72px;height:72px}
+  .gauge-value{font-size:22px}.bar-row{grid-template-columns:94px 1fr 27px;gap:7px}.panel{padding:14px 12px}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#" id="brandHome" aria-label="Dashboard">CEDWYN</a>
+  <nav class="tools" aria-label="Webapp navigation">
+    <button class="tool-button" id="dashboard" type="button">Dashboard</button>
+    <button class="tool-button icon" id="prev" type="button" aria-label="Previous webapp">‹</button>
+    <output id="slot" aria-live="polite">DASHBOARD</output>
+    <button class="tool-button icon" id="next" type="button" aria-label="Next webapp">›</button>
+    <select class="tool-select" id="pick" aria-label="Choose a webapp"><option value="">WEBAPPS</option></select>
+    <span id="sourceStatus">REGISTRY</span>
+  </nav>
 </header>
-<main><iframe id="view" title="Webapp" loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe></main>
+<main>
+  <section id="dashboardView" aria-label="Dashboard">
+    <div class="dashboard">
+      <div class="gauge-grid" id="gauges" aria-label="Registry gauges">
+        <button class="gauge-card" type="button" data-docs="true" aria-label="Areas"><span class="gauge-label">AREAS</span><span class="gauge-ring"><span class="gauge-value">—</span></span></button>
+        <button class="gauge-card" type="button" data-docs="true" aria-label="Webapps"><span class="gauge-label">WEBAPPS</span><span class="gauge-ring"><span class="gauge-value">—</span></span></button>
+        <button class="gauge-card" type="button" data-docs="true" aria-label="Workers"><span class="gauge-label">WORKERS</span><span class="gauge-ring"><span class="gauge-value">—</span></span></button>
+      </div>
+      <div class="chart-grid">
+        <section class="panel" aria-label="Webapps by group"><h2 class="panel-title">BY GROUP</h2><div class="bar-list" id="bars"></div></section>
+        <section class="panel" aria-label="Webapp slots by group"><h2 class="panel-title">SLOT × GROUP</h2><div class="scatter-scroll" id="scatter"></div></section>
+      </div>
+      <div class="source-line"><span id="sourceName">AREAS.JSON</span><span id="sourceVersion">NAV —</span></div>
+    </div>
+  </section>
+  <section id="appView" hidden aria-label="Selected webapp"><iframe id="view" title="Webapp" loading="eager" referrerpolicy="no-referrer-when-downgrade"></iframe></section>
+</main>
+<dialog id="docsDialog" aria-label="Docs">
+  <div class="dialog-head"><span class="dialog-label">DOCS</span><button class="dialog-close" id="closeDialog" type="button" aria-label="Close">×</button></div>
+  <a class="docs-url" href="https://bucklerfamily.estate/docs/">https://bucklerfamily.estate/docs/</a>
+</dialog>
 <script>
-(async()=>{
- const r=await fetch('apps.json?cb='+Date.now()); const m=await r.json(); const A=m.apps;
- const pick=document.getElementById('pick'), view=document.getElementById('view');
- A.forEach((a,i)=>{const o=document.createElement('option');o.value=i;o.textContent=a.slot+'. '+a.title;pick.appendChild(o)});
- const fit=()=>document.querySelector('main').style.setProperty('--h','0px')||document.documentElement.style.setProperty('--h',document.getElementById('bar').offsetHeight+'px');
- function show(i){i=(i+A.length)%A.length;const a=A[i];pick.value=i;view.src=a.url;
-  document.getElementById('slot').textContent=a.slot+' of '+m.total;
-  document.getElementById('meta').textContent=a.status+' · '+m.split+' of '+m.total+' webapps in their own repositories';
-  history.replaceState(null,'','#'+a.id);fit();}
- document.getElementById('prev').onclick=()=>show(+pick.value-1);
- document.getElementById('next').onclick=()=>show(+pick.value+1);
- pick.onchange=()=>show(+pick.value);
- addEventListener('keydown',e=>{if(e.key==='ArrowLeft')show(+pick.value-1);if(e.key==='ArrowRight')show(+pick.value+1)});
- addEventListener('resize',fit);
- const h=location.hash.slice(1), k=A.findIndex(a=>a.id===h); show(k<0?0:k);
+(function(){
+  "use strict";
+  var LIVE_URL="https://bucklerfamily.estate/areas.json",SITE_ORIGIN="https://bucklerfamily.estate";
+  var nav=[],total=59,currentIndex=-1;
+  var dashboardView=document.getElementById("dashboardView"),appView=document.getElementById("appView");
+  var frame=document.getElementById("view"),picker=document.getElementById("pick"),slotOutput=document.getElementById("slot");
+  var sourceStatus=document.getElementById("sourceStatus"),dialog=document.getElementById("docsDialog");
+
+  function escapeHtml(value){
+    return String(value==null?"":value).replace(/[&<>"']/g,function(ch){
+      return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[ch];
+    });
+  }
+  function validRegistry(data){
+    if(!data||data.schema!=="cedwyn_areas/v1"||!Array.isArray(data.nav)||!data.nav.length) return false;
+    var ids=new Set(),slots=new Set(),paths=new Set();
+    for(var i=0;i<data.nav.length;i++){
+      var a=data.nav[i];
+      if(!a) return false;
+      var n=Number(a.slot),path=String(a.href||a.path||"");
+      if(!a.id||!a.title||!a.group||!Number.isInteger(n)||n<1||!path) return false;
+      if(ids.has(a.id)||slots.has(n)||paths.has(path)) return false;
+      ids.add(a.id);slots.add(n);paths.add(path);
+    }
+    var max=Number(data.parcel_total);
+    if(!Number.isInteger(max)||max<1||slots.size!==max) return false;
+    for(var s=1;s<=max;s++) if(!slots.has(s)) return false;
+    return true;
+  }
+  async function loadRegistry(){
+    var primary=location.hostname.toLowerCase()==="bucklerfamily.estate"?"/areas.json":LIVE_URL;
+    var urls=[primary,LIVE_URL,new URL("registry-snapshot.json",document.baseURI).href],tried=new Set();
+    for(var i=0;i<urls.length;i++){
+      var url=urls[i];if(tried.has(url)) continue;tried.add(url);
+      try{
+        var response=await fetch(url,{cache:"no-store"});
+        if(!response.ok) continue;
+        var data=await response.json();
+        if(validRegistry(data)) return {data:data,source:url.indexOf("registry-snapshot.json")!==-1?"SNAPSHOT":"LIVE"};
+      }catch(error){}
+    }
+    return {data:null,source:"OFFLINE"};
+  }
+  function openDocs(){
+    if(typeof dialog.showModal==="function"){if(!dialog.open) dialog.showModal();}
+    else dialog.setAttribute("open","");
+  }
+  function renderGauges(specs){
+    document.getElementById("gauges").innerHTML=specs.map(function(s){
+      var pct=Math.max(0,Math.min(100,s.value/Math.max(1,total)*100));
+      return '<button class="gauge-card" type="button" data-docs="true" aria-label="'+escapeHtml(s.label+" "+s.value)+'">'+
+        '<span class="gauge-label">'+escapeHtml(s.label)+'</span>'+
+        '<span class="gauge-ring" style="--ratio:'+pct.toFixed(2)+'"><span class="gauge-value">'+s.value+'</span></span></button>';
+    }).join("");
+  }
+  function renderBars(groups){
+    var maximum=Math.max.apply(null,groups.map(function(g){return g.count;}).concat([1]));
+    document.getElementById("bars").innerHTML=groups.map(function(g,i){
+      var pct=(g.count/maximum*100).toFixed(2);
+      return '<button class="bar-row" type="button" data-docs="true" aria-label="'+escapeHtml(g.name+" "+g.count)+'">'+
+        '<span class="bar-label">'+escapeHtml(g.name)+'</span><span class="bar-track"><span class="bar-fill g-'+(i%8)+'" style="width:'+pct+'%"></span></span>'+
+        '<span class="bar-value">'+g.count+'</span></button>';
+    }).join("");
+  }
+  function renderScatter(groups){
+    var width=900,height=340,left=142,right=26,top=24,bottom=42,plotW=width-left-right,plotH=height-top-bottom;
+    var band=plotH/Math.max(1,groups.length),groupIndex={};
+    groups.forEach(function(g,i){groupIndex[g.name]=i;});
+    var parts=['<svg id="scatterSvg" viewBox="0 0 '+width+' '+height+'" role="img" aria-label="Slots by group">'];
+    groups.forEach(function(g,i){
+      var y=top+band*(i+.5);
+      parts.push('<line class="grid-line" x1="'+left+'" y1="'+y.toFixed(1)+'" x2="'+(width-right)+'" y2="'+y.toFixed(1)+'"></line>');
+      parts.push('<text class="axis-label" x="'+(left-13)+'" y="'+(y+3.5).toFixed(1)+'" text-anchor="end">'+escapeHtml(g.name).toUpperCase()+'</text>');
+    });
+    var ticks=[1,Math.round(total/3),Math.round(total*2/3),total].filter(function(v,i,a){return v>0&&a.indexOf(v)===i;});
+    ticks.forEach(function(t){
+      var x=left+((t-1)/Math.max(1,total-1))*plotW;
+      parts.push('<line class="grid-line" x1="'+x.toFixed(1)+'" y1="'+top+'" x2="'+x.toFixed(1)+'" y2="'+(height-bottom)+'"></line>');
+      parts.push('<text class="axis-tick" x="'+x.toFixed(1)+'" y="'+(height-17)+'" text-anchor="middle">'+t+'</text>');
+    });
+    nav.forEach(function(a){
+      var gi=groupIndex[a.group];if(gi===undefined) return;
+      var x=left+((Number(a.slot)-1)/Math.max(1,total-1))*plotW,y=top+band*(gi+.5);
+      var label="Slot "+a.slot+": "+a.title+"; "+a.group;
+      parts.push('<circle class="dot g-'+(gi%8)+'" cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="5.4" data-docs="true" tabindex="0" role="button" aria-label="'+escapeHtml(label)+'"></circle>');
+    });
+    parts.push("</svg>");
+    document.getElementById("scatter").innerHTML=parts.join("");
+  }
+  function renderDashboard(data,source){
+    nav=data.nav.slice().sort(function(a,b){return Number(a.slot)-Number(b.slot);});
+    total=Number(data.parcel_total)||nav.length;
+    var areaCount=Number(data.count);
+    if(!Number.isFinite(areaCount)) areaCount=Array.isArray(data.areas)?data.areas.length:0;
+    var workerCount=nav.filter(function(a){return a.worker===true;}).length,counts=Object.create(null);
+    nav.forEach(function(a){counts[a.group]=(counts[a.group]||0)+1;});
+    var groups=Object.keys(counts).map(function(name){return {name:name,count:counts[name]};});
+    groups.sort(function(a,b){return b.count-a.count||a.name.localeCompare(b.name);});
+    renderGauges([{label:"AREAS",value:areaCount},{label:"WEBAPPS",value:nav.length},{label:"WORKERS",value:workerCount}]);
+    renderBars(groups);renderScatter(groups);
+    picker.innerHTML='<option value="">WEBAPPS</option>'+nav.map(function(a){
+      return '<option value="'+escapeHtml(a.id)+'">'+String(a.slot).padStart(2,"0")+' · '+escapeHtml(a.title)+'</option>';
+    }).join("");
+    sourceStatus.textContent=source;
+    sourceStatus.style.color=source==="LIVE"?"var(--teal)":source==="SNAPSHOT"?"var(--gold)":"var(--rose)";
+    document.getElementById("sourceName").textContent="AREAS.JSON";
+    document.getElementById("sourceVersion").textContent="NAV "+String(data.nav_version||"—");
+  }
+  function showDashboard(){
+    currentIndex=-1;dashboardView.hidden=false;appView.hidden=true;frame.src="about:blank";frame.title="Webapp";
+    picker.value="";slotOutput.textContent="DASHBOARD";
+    history.replaceState(null,"",location.pathname+location.search);
+  }
+  function showApp(index){
+    if(!nav.length) return;
+    currentIndex=(index+nav.length)%nav.length;
+    var app=nav[currentIndex],route=app.href||app.path||"/";
+    dashboardView.hidden=true;appView.hidden=false;frame.src=new URL(route,SITE_ORIGIN).href;
+    frame.title=app.title+", "+app.slot+" of "+total;picker.value=app.id;
+    slotOutput.textContent=String(app.slot).padStart(2,"0")+" / "+total;
+    history.replaceState(null,"","#"+encodeURIComponent(app.id));
+  }
+  function step(direction){
+    if(!nav.length) return;
+    if(currentIndex===-1) showApp(direction>0?0:nav.length-1);else showApp(currentIndex+direction);
+  }
+  document.addEventListener("click",function(event){
+    var target=event.target&&event.target.closest?event.target.closest("[data-docs]"):null;
+    if(target) openDocs();
+  });
+  document.addEventListener("keydown",function(event){
+    if((event.key==="Enter"||event.key===" ")&&event.target&&event.target.matches&&event.target.matches('circle[data-docs]')){
+      event.preventDefault();openDocs();
+    }
+  });
+  document.getElementById("closeDialog").addEventListener("click",function(){
+    if(typeof dialog.close==="function") dialog.close();else dialog.removeAttribute("open");
+  });
+  dialog.addEventListener("click",function(event){
+    if(event.target===dialog&&typeof dialog.close==="function") dialog.close();
+  });
+  document.getElementById("dashboard").addEventListener("click",showDashboard);
+  document.getElementById("brandHome").addEventListener("click",function(event){event.preventDefault();showDashboard();});
+  document.getElementById("prev").addEventListener("click",function(){step(-1);});
+  document.getElementById("next").addEventListener("click",function(){step(1);});
+  picker.addEventListener("change",function(){
+    if(!picker.value){showDashboard();return;}
+    var index=nav.findIndex(function(a){return a.id===picker.value;});if(index>=0) showApp(index);
+  });
+  document.addEventListener("keydown",function(event){
+    if(event.altKey||event.ctrlKey||event.metaKey||event.target===picker||(event.target&&event.target.closest&&event.target.closest("button,a,input,textarea,[role=button],[tabindex]"))) return;
+    if(event.key==="ArrowLeft") step(-1);if(event.key==="ArrowRight") step(1);
+  });
+  loadRegistry().then(function(result){
+    if(result.data) renderDashboard(result.data,result.source);
+    else{
+      sourceStatus.textContent="OFFLINE";sourceStatus.style.color="var(--rose)";
+      document.getElementById("sourceVersion").textContent="NAV —";
+      document.getElementById("bars").innerHTML="";document.getElementById("scatter").innerHTML="";nav=[];
+    }
+    var id=location.hash.slice(1);
+    try{id=decodeURIComponent(id);}catch(error){}
+    var initial=nav.findIndex(function(a){return a.id===id;});
+    if(initial>=0) showApp(initial);else showDashboard();
+  });
 })();
-</script></body></html>
+</script>
+</body>
+</html>

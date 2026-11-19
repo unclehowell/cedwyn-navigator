@@ -1,0 +1,541 @@
+{
+  "schema": "cedwyn_areas/v1",
+  "source": "https://bucklerfamily.estate/areas.json",
+  "snapshot_date": "2026-11-19",
+  "count": 41,
+  "parcel_total": 59,
+  "nav_version": "1.1.0",
+  "nav": [
+    {
+      "id": "wiki",
+      "title": "Legal Wiki & Evidence",
+      "group": "artifacts",
+      "slot": 1,
+      "href": "/wiki/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "docs",
+      "title": "Docs · Evidence Catalogue",
+      "group": "artifacts",
+      "slot": 2,
+      "href": "/docs/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "wayback",
+      "title": "Wayback Vault",
+      "group": "artifacts",
+      "slot": 3,
+      "href": "/wayback/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "maps",
+      "title": "Map Room",
+      "group": "artifacts",
+      "slot": 4,
+      "href": "/maps/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "infographic",
+      "title": "The Land Changing Hands",
+      "group": "interactive",
+      "slot": 5,
+      "href": "/infographic/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "ebooks",
+      "title": "E-book Shelf",
+      "group": "story",
+      "slot": 6,
+      "href": "/ebooks/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "story",
+      "title": "The Story & Documentary",
+      "group": "story",
+      "slot": 7,
+      "href": "/story/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "thousand-cuts",
+      "title": "1000 Cuts",
+      "group": "story",
+      "slot": 8,
+      "href": "/thousand-cuts/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "fb",
+      "title": "Farm Album",
+      "group": "artifacts",
+      "slot": 9,
+      "href": "/fb/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "arcade",
+      "title": "Arcade",
+      "group": "interactive",
+      "slot": 10,
+      "href": "/arcade/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "chess",
+      "title": "Chessboard",
+      "group": "interactive",
+      "slot": 11,
+      "href": "/chess/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "csscpsg",
+      "title": "Grammar House",
+      "group": "interactive",
+      "slot": 12,
+      "href": "/csscpsg/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "courtdrills",
+      "title": "Court Drills",
+      "group": "interactive",
+      "slot": 13,
+      "href": "/courtdrills/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "fcg",
+      "title": "FCG · Fraud, Concealment and Government involvement",
+      "group": "research",
+      "slot": 14,
+      "href": "/online/fcg/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "oldbill",
+      "title": "Old Bill · Who Gained, Who Lost",
+      "group": "story",
+      "slot": 15,
+      "href": "/oldbill/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "accounts",
+      "title": "Counting House",
+      "group": "research",
+      "slot": 16,
+      "href": "/accounts/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "authorities",
+      "title": "Public Authorities & Council Chamber",
+      "group": "research",
+      "slot": 17,
+      "href": "/online/authorities/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "wdtk",
+      "title": "FOI Requests",
+      "group": "research",
+      "slot": 18,
+      "href": "/online/wdtk/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "review",
+      "title": "Independent Review",
+      "group": "research",
+      "slot": 19,
+      "href": "/online/review/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "research",
+      "title": "Research Library",
+      "group": "research",
+      "slot": 20,
+      "href": "/research/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "qa",
+      "title": "Q&A Hall",
+      "group": "story",
+      "slot": 21,
+      "href": "/online/qa/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "projects",
+      "title": "Project Office",
+      "group": "research",
+      "slot": 22,
+      "href": "/online/projects/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "app",
+      "title": "Case Office",
+      "group": "interactive",
+      "slot": 23,
+      "href": "/app/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "chat",
+      "title": "Ask the Archive",
+      "group": "interactive",
+      "slot": 24,
+      "href": "/online/chat/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "watchtower",
+      "title": "Watchtower",
+      "group": "research",
+      "slot": 25,
+      "href": "/online/watchtower/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "email",
+      "title": "Post Office & Calendar",
+      "group": "research",
+      "slot": 26,
+      "href": "/online/email/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "dartboard",
+      "title": "Disclosure Dartboard",
+      "group": "interactive",
+      "slot": 27,
+      "href": "/online/dartboard/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "estate",
+      "title": "Cedwyn Estate",
+      "group": "interactive",
+      "slot": 28,
+      "href": "/estate/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "directory",
+      "title": "Cedwyn Directory",
+      "group": "interactive",
+      "slot": 29,
+      "href": "/directory/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "patagonia",
+      "title": "Great House Farm II · Patagonia",
+      "group": "artifacts",
+      "slot": 30,
+      "href": "/patagonia/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "wales",
+      "title": "Virtual Tour · Wales",
+      "group": "interactive",
+      "slot": 31,
+      "href": "/wales/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "shop",
+      "title": "Gift Shop & Marketplace",
+      "group": "story",
+      "slot": 32,
+      "href": "/shop/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "familytree",
+      "title": "Family Tree",
+      "group": "story",
+      "slot": 33,
+      "href": "/familytree/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "kissed-frogs",
+      "title": "Kissed Frogs",
+      "group": "research",
+      "slot": 34,
+      "href": "/kissed-frogs/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "whattheydontsay",
+      "title": "What They Don't Say",
+      "group": "research",
+      "slot": 35,
+      "href": "/online/whattheydontsay/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "blog",
+      "title": "Blog",
+      "group": "research",
+      "slot": 36,
+      "href": "/blog/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "hubspot",
+      "title": "HubSpot · Task Control",
+      "group": "interactive",
+      "slot": 37,
+      "href": "/online/hubspot/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "that-old-chestnut",
+      "title": "That Old Chestnut",
+      "group": "research",
+      "slot": 38,
+      "href": "/online/that-old-chestnut/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "forensic",
+      "title": "Forensic Assessments",
+      "group": "research",
+      "slot": 39,
+      "href": "/online/forensic/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "mr-wolf",
+      "title": "Mr Wolf",
+      "group": "research",
+      "slot": 40,
+      "href": "/mr-wolf/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "releases",
+      "title": "The Release Machine",
+      "group": "interactive",
+      "slot": 41,
+      "href": "/releases/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "tithe-h3",
+      "title": "Tithe H3",
+      "group": "artifacts",
+      "slot": 42,
+      "href": "/tithe-h3/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "cloudflare",
+      "title": "Cloudflare",
+      "group": "interactive",
+      "slot": 43,
+      "href": "/online/cloudflare/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "spill",
+      "title": "Spill",
+      "group": "interactive",
+      "slot": 44,
+      "href": "/spill/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "analytics",
+      "title": "Analytics",
+      "group": "interactive",
+      "slot": 45,
+      "href": "/analytics/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "chubut-h3",
+      "title": "Chubut H3",
+      "group": "artifacts",
+      "slot": 46,
+      "href": "/chubut-h3/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "garden",
+      "title": "Flower Garden",
+      "group": "interactive",
+      "slot": 47,
+      "href": "/garden/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "documentary",
+      "title": "Cedwyn · documentary",
+      "group": "story",
+      "slot": 48,
+      "href": "/documentary/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "nomenclature",
+      "title": "Nomenclature",
+      "group": "artifacts",
+      "slot": 49,
+      "href": "/nomenclature/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "records",
+      "title": "Primary Records",
+      "group": "artifacts",
+      "slot": 50,
+      "href": "/records/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "fb2",
+      "title": "farmbook 2 · Today",
+      "group": "research",
+      "slot": 51,
+      "href": "/fb2/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "nft-art",
+      "title": "The Garden Gallery",
+      "group": "interactive",
+      "slot": 52,
+      "href": "/nft-art/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "cyberspace",
+      "title": "The Digital Estate",
+      "group": "interactive",
+      "slot": 53,
+      "href": "/online/cyberspace/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "meeting",
+      "title": "The Council Chamber",
+      "group": "research",
+      "slot": 54,
+      "href": "/meeting/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "emails",
+      "title": "The Post Office · Calendar",
+      "group": "research",
+      "slot": 55,
+      "href": "/online/emails/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "preservation",
+      "title": "Preservation Register",
+      "group": "research",
+      "slot": 56,
+      "href": "/preservation/",
+      "worker": true,
+      "built": true
+    },
+    {
+      "id": "language-forensics",
+      "title": "Language Forensics",
+      "group": "research",
+      "slot": 57,
+      "href": "/language-forensics/",
+      "worker": false,
+      "built": true
+    },
+    {
+      "id": "piano-hero",
+      "title": "Piano Hero",
+      "group": "interactive",
+      "slot": 58,
+      "href": "/piano-hero/",
+      "worker": true,
+      "built": true
+    },
+    {
+      "id": "uptime",
+      "title": "Uptime",
+      "group": "research",
+      "slot": 59,
+      "href": "/uptime/",
+      "worker": false,
+      "built": true
+    }
+  ]
+}
