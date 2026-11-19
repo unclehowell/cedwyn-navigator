@@ -260,7 +260,7 @@ dialog::backdrop{background:rgba(3,7,9,.78);backdrop-filter:blur(3px)}
     var index=nav.findIndex(function(a){return a.id===picker.value;});if(index>=0) showApp(index);
   });
   document.addEventListener("keydown",function(event){
-    if(event.altKey||event.ctrlKey||event.metaKey||event.target===picker) return;
+    if(event.altKey||event.ctrlKey||event.metaKey||event.target===picker||(event.target&&event.target.closest&&event.target.closest("button,a,input,textarea,[role=button],[tabindex]"))) return;
     if(event.key==="ArrowLeft") step(-1);if(event.key==="ArrowRight") step(1);
   });
   loadRegistry().then(function(result){
@@ -270,7 +270,9 @@ dialog::backdrop{background:rgba(3,7,9,.78);backdrop-filter:blur(3px)}
       document.getElementById("sourceVersion").textContent="NAV —";
       document.getElementById("bars").innerHTML="";document.getElementById("scatter").innerHTML="";nav=[];
     }
-    var id=decodeURIComponent(location.hash.slice(1)),initial=nav.findIndex(function(a){return a.id===id;});
+    var id=location.hash.slice(1);
+    try{id=decodeURIComponent(id);}catch(error){}
+    var initial=nav.findIndex(function(a){return a.id===id;});
     if(initial>=0) showApp(initial);else showDashboard();
   });
 })();
